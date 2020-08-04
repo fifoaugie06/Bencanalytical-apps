@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Bencanalytical</string>
     <string name="title_activity_maps">Map</string>
+    <string name="tvLogin">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="tvRegister">Register</string>
 </resources>
