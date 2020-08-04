@@ -5,4 +5,6 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="tvRegister">Register</string>
+    <string name="fullname">Fullname</string>
+    <string name="email">Email</string>
 </resources>
