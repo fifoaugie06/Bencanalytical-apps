@@ -38,7 +38,18 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.View
         holder.tvNama.setText(responsePengaduanData.get(position).getNamaBencana());
         holder.tvTanggal.setText(responsePengaduanData.get(position).getUpdatedAt());
         holder.tvDeskripsiLocation.setText(responsePengaduanData.get(position).getDeskripsiLokasi());
-        holder.tvStatus.setText(responsePengaduanData.get(position).getStatusBencana());
+
+        String status = responsePengaduanData.get(position).getStatusBencana();
+        if (status.equals("Pending")){
+            holder.tvStatus.setText(status);
+            holder.tvStatus.setTextColor(0xFFf39c12);
+        }else if (status.equals("Terkonfirmasi") || status.equals("Selesai")){
+            holder.tvStatus.setText(status);
+            holder.tvStatus.setTextColor(0xFF2ecc71);
+        }else{
+            holder.tvStatus.setText(status);
+            holder.tvStatus.setTextColor(0xFFe74c3c);
+        }
 
         Glide.with(view.getContext())
                 .load(BASE_URL + "img/bencana/" + responsePengaduanData.get(position).getGambar())

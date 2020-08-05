@@ -56,7 +56,7 @@ public class PengaduanFragment extends Fragment {
         progress.show();
 
         apiService = ApiClient.getClient().create(ApiService.class);
-        Call<responsePengaduan> responsePengaduanCall = apiService.getPengaduan("4");
+        Call<responsePengaduan> responsePengaduanCall = apiService.getPengaduan("1");
         responsePengaduanCall.enqueue(new Callback<responsePengaduan>() {
             @Override
             public void onResponse(Call<responsePengaduan> call, Response<responsePengaduan> response) {
