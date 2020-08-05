@@ -8,7 +8,7 @@
     <string name="fullname">Fullname</string>
     <string name="email">Email</string>
 
-    <string name="title_home">Home</string>
+    <string name="title_pengaduan">Pengaduan</string>
     <string name="title_bencana">Bencana</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
 </resources>

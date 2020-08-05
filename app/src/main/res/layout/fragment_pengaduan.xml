@@ -4,15 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.bencana.BencanaFragment">
+    tools:context=".ui.pengaduan.PengaduanFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginStart="@dimen/margin_padding_12dp"
         android:layout_marginEnd="@dimen/margin_padding_12dp"
-        android:id="@+id/rvBencana"
+        android:id="@+id/rvPengaduan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_row_bencana"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:tint="@android:color/white"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@null"
+        android:backgroundTint="@color/colorPrimary"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

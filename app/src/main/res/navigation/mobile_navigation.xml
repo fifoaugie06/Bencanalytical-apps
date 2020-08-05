@@ -6,10 +6,10 @@
     app:startDestination="@+id/navigation_bencana">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.bencanalytical.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_pengaduan"
+        android:name="com.example.bencanalytical.ui.pengaduan.PengaduanFragment"
+        android:label="@string/title_pengaduan"
+        tools:layout="@layout/fragment_pengaduan" />
 
     <fragment
         android:id="@+id/navigation_bencana"
@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_bencana" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.bencanalytical.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_profile"
+        android:name="com.example.bencanalytical.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

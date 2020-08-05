@@ -11,46 +11,47 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.bencanalytical.R;
-import com.example.bencanalytical.model.responseBencanaData;
+import com.example.bencanalytical.model.responsePengaduanData;
 
 import java.util.List;
 
 import static com.example.bencanalytical.services.ApiClient.BASE_URL;
 
-public class BencanaAdapter extends RecyclerView.Adapter<BencanaAdapter.ViewHolder> {
-    private List<responseBencanaData> responseBencanaData;
+public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.ViewHolder> {
+    private List<responsePengaduanData> responsePengaduanData;
     private View view;
     private ImageView imgBencana;
 
-    public BencanaAdapter(List<responseBencanaData> responseBencanaData) {
-        this.responseBencanaData = responseBencanaData;
+    public PengaduanAdapter(List<responsePengaduanData> responsePengaduanData) {
+        this.responsePengaduanData = responsePengaduanData;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row_bencana, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row_pengaduan, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvNama.setText(responseBencanaData.get(position).getNamaBencana());
-        holder.tvTanggal.setText(responseBencanaData.get(position).getUpdatedAt());
-        holder.tvDeskripsiLocation.setText(responseBencanaData.get(position).getDeskripsiLokasi());
+        holder.tvNama.setText(responsePengaduanData.get(position).getNamaBencana());
+        holder.tvTanggal.setText(responsePengaduanData.get(position).getUpdatedAt());
+        holder.tvDeskripsiLocation.setText(responsePengaduanData.get(position).getDeskripsiLokasi());
+        holder.tvStatus.setText(responsePengaduanData.get(position).getStatusBencana());
 
         Glide.with(view.getContext())
-                .load(BASE_URL + "img/bencana/" + responseBencanaData.get(position).getGambar())
+                .load(BASE_URL + "img/bencana/" + responsePengaduanData.get(position).getGambar())
                 .into(imgBencana);
     }
 
     @Override
     public int getItemCount() {
-        return responseBencanaData.size();
+        return responsePengaduanData.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNama, tvTanggal, tvDeskripsiLocation;
+        TextView tvNama, tvTanggal, tvDeskripsiLocation, tvStatus;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -58,6 +59,7 @@ public class BencanaAdapter extends RecyclerView.Adapter<BencanaAdapter.ViewHold
             tvTanggal = itemView.findViewById(R.id.tvTanggal);
             tvDeskripsiLocation = itemView.findViewById(R.id.tvDeskripsiLocation);
             imgBencana = itemView.findViewById(R.id.imgBencana);
+            tvStatus = itemView.findViewById(R.id.tvStatus);
         }
     }
 }

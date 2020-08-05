@@ -3,7 +3,7 @@ package com.example.bencanalytical.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class responseBencanaData {
+public class responsePengaduanData {
     @SerializedName("nama_bencana")
     @Expose
     private String namaBencana;
@@ -25,6 +25,9 @@ public class responseBencanaData {
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
+    @SerializedName("status_bencana")
+    @Expose
+    private String statusBencana;
 
     public String getNamaBencana() {
         return namaBencana;
@@ -80,5 +83,13 @@ public class responseBencanaData {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getStatusBencana() {
+        return statusBencana;
+    }
+
+    public void setStatusBencana(String statusBencana) {
+        this.statusBencana = statusBencana;
     }
 }
