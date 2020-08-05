@@ -11,4 +11,7 @@
     <string name="title_pengaduan">Pengaduan</string>
     <string name="title_bencana">Bencana</string>
     <string name="title_profile">Profile</string>
+    <string name="dipublikasikan">Dilaporkan Oleh</string>
+    <string name="deskripsi">Deskripsi Lokasi</string>
+    <string name="deskripsikejadian">Deskripsi Kejadian</string>
 </resources>

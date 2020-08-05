@@ -74,6 +74,8 @@ public class BencanaFragment extends Fragment {
 
             @Override
             public void onFailure(Call<responseBencana> call, Throwable t) {
+                Log.i("ASD", call.request().url().toString());
+
                 progress.dismiss();
                 Toast.makeText(view.getContext(), "Jaringan Error", Toast.LENGTH_SHORT).show();
             }

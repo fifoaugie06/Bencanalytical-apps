@@ -34,6 +34,7 @@ public class PengaduanFragment extends Fragment {
     private List<responsePengaduanData> responsePengaduanData;
     private PengaduanAdapter adapter;
     private RecyclerView recyclerView;
+    private String IDUSER;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,6 +44,8 @@ public class PengaduanFragment extends Fragment {
         recyclerView = view.findViewById(R.id.rvPengaduan);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
+
+        IDUSER = getActivity().getIntent().getStringExtra("IDUSER");
 
         loadData();
 
@@ -56,7 +59,7 @@ public class PengaduanFragment extends Fragment {
         progress.show();
 
         apiService = ApiClient.getClient().create(ApiService.class);
-        Call<responsePengaduan> responsePengaduanCall = apiService.getPengaduan("1");
+        Call<responsePengaduan> responsePengaduanCall = apiService.getPengaduan(IDUSER);
         responsePengaduanCall.enqueue(new Callback<responsePengaduan>() {
             @Override
             public void onResponse(Call<responsePengaduan> call, Response<responsePengaduan> response) {

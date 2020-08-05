@@ -17,16 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DashboardActivity">
+        <activity android:name=".DetailBencanaActivity"></activity>
+        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
-
         </activity>
         <activity android:name=".SplashScreenActivity" />
         <!--
@@ -43,7 +42,7 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
     </application>
 
 </manifest>

@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/margin_padding_12dp"
-    app:cardCornerRadius="@dimen/margin_padding_4dp">
+    android:layout_marginTop="@dimen/margin_padding_6dp"
+    app:cardCornerRadius="@dimen/margin_padding_4dp"
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
