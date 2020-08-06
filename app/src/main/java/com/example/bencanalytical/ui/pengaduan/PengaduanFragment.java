@@ -1,6 +1,7 @@
 package com.example.bencanalytical.ui.pengaduan;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,11 +15,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bencanalytical.R;
+import com.example.bencanalytical.TambahPengaduanActivity;
 import com.example.bencanalytical.adapter.PengaduanAdapter;
 import com.example.bencanalytical.model.responsePengaduan;
 import com.example.bencanalytical.model.responsePengaduanData;
 import com.example.bencanalytical.services.ApiClient;
 import com.example.bencanalytical.services.ApiService;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,7 @@ public class PengaduanFragment extends Fragment {
     private PengaduanAdapter adapter;
     private RecyclerView recyclerView;
     private String IDUSER;
+    private FloatingActionButton fab;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,6 +50,11 @@ public class PengaduanFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         IDUSER = getActivity().getIntent().getStringExtra("IDUSER");
+
+        fab = view.findViewById(R.id.fab);
+        fab.setOnClickListener(view -> {
+            startActivity(new Intent(view.getContext(), TambahPengaduanActivity.class));
+        });
 
         loadData();
 

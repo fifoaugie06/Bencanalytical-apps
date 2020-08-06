@@ -1,5 +1,6 @@
 package com.example.bencanalytical.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.bencanalytical.DetailBencanaActivity;
 import com.example.bencanalytical.R;
 import com.example.bencanalytical.model.responsePengaduanData;
 
@@ -54,6 +56,19 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.View
         Glide.with(view.getContext())
                 .load(BASE_URL + "img/bencana/" + responsePengaduanData.get(position).getGambar())
                 .into(imgBencana);
+
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(view.getContext(), DetailBencanaActivity.class);
+            intent.putExtra("NAMABENCANA", responsePengaduanData.get(position).getNamaBencana());
+            intent.putExtra("TANGGAL", responsePengaduanData.get(position).getUpdatedAt());
+            intent.putExtra("PUBLIKASI", responsePengaduanData.get(position).getFullname());
+            intent.putExtra("LOKASI", responsePengaduanData.get(position).getDeskripsiLokasi());
+            intent.putExtra("KEJADIAN", responsePengaduanData.get(position).getDeskripsiKejadian());
+            intent.putExtra("KOORDINAT", responsePengaduanData.get(position).getKoordinat());
+            intent.putExtra("GAMBAR", responsePengaduanData.get(position).getGambar());
+
+            view.getContext().startActivity(intent);
+        });
     }
 
     @Override
