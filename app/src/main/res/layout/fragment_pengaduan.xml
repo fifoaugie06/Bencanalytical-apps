@@ -26,6 +26,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@null"
+        app:borderWidth="0dp"
         android:backgroundTint="@color/colorPrimary"/>
 
 

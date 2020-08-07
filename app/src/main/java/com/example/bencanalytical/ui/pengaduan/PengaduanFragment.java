@@ -53,7 +53,9 @@ public class PengaduanFragment extends Fragment {
 
         fab = view.findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
-            startActivity(new Intent(view.getContext(), TambahPengaduanActivity.class));
+            Intent intent = new Intent(view.getContext(), TambahPengaduanActivity.class);
+            intent.putExtra("IDUSER", IDUSER);
+            startActivity(intent);
         });
 
         loadData();
@@ -85,7 +87,7 @@ public class PengaduanFragment extends Fragment {
 
             @Override
             public void onFailure(Call<responsePengaduan> call, Throwable t) {
-
+                progress.dismiss();
             }
         });
     }

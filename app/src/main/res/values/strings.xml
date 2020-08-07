@@ -14,4 +14,12 @@
     <string name="dipublikasikan">Dilaporkan Oleh</string>
     <string name="deskripsi">Deskripsi Lokasi</string>
     <string name="deskripsikejadian">Deskripsi Kejadian</string>
+    <string name="namaBencana">Nama Bencana</string>
+    <string name="koordinat">Koordinat</string>
+    <string name="tambahkan">Tambahkan</string>
+    <string name="userprofile">Profile</string>
+    <string name="phone">Phone</string>
+    <string name="alamat">Address</string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="logout">Logout</string>
 </resources>

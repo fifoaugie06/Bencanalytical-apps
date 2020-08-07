@@ -12,6 +12,7 @@ import com.example.bencanalytical.R;
 
 
 public class ProfileFragment extends Fragment {
+    private String USERNAME;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
