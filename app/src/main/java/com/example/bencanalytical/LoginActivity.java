@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     private EditText edtUsername, edtPassword;
     private ImageButton btnLogin;
+    private Button btnRegisterIntent;
     private ProgressDialog progress;
     private ApiService apiService;
 
@@ -37,6 +40,13 @@ public class LoginActivity extends AppCompatActivity {
         edtUsername = findViewById(R.id.edt_username);
         edtPassword = findViewById(R.id.edt_password);
         btnLogin = findViewById(R.id.btn_login);
+        btnRegisterIntent = findViewById(R.id.btn_Register_Intent);
+
+        btnRegisterIntent.setOnClickListener(view -> {
+            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+
+            finish();
+        });
 
         btnLogin.setOnClickListener(view -> {
             progress = new ProgressDialog(this);

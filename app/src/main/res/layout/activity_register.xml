@@ -61,29 +61,30 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/parentedit"
                 android:layout_width="0dp"
-                app:layout_constraintWidth_percent="0.7"
                 android:layout_height="240dp"
                 android:layout_marginTop="46dp"
                 android:background="@drawable/ic_field_loginstyle"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_Login">
+                app:layout_constraintTop_toBottomOf="@id/tv_Login"
+                app:layout_constraintWidth_percent="0.7">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
+                    android:gravity="center"
                     app:layout_constraintBottom_toTopOf="@id/view"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/ic_nick"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/ic_person_outline_black_24dp" />
 
                     <EditText
-                        android:id="@+id/edt_nick"
+                        android:id="@+id/edt_username"
                         android:layout_width="match_parent"
                         android:layout_height="33dp"
                         android:layout_marginStart="6dp"
@@ -108,24 +109,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
+                    android:gravity="center"
                     app:layout_constraintBottom_toTopOf="@id/view2"
                     app:layout_constraintTop_toBottomOf="@id/view">
 
                     <ImageView
                         android:id="@+id/ic_nim"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/ic_credit_card_black_24dp" />
 
                     <EditText
-                        android:id="@+id/edt_username"
+                        android:id="@+id/edt_fullname"
                         android:layout_width="match_parent"
                         android:layout_height="33dp"
                         android:layout_marginStart="6dp"
                         android:background="@android:color/transparent"
                         android:hint="@string/fullname"
-                        android:inputType="number"
-                        android:maxLength="15"
                         android:maxLines="1"
                         android:textColor="#535353"
                         android:textSize="18sp" />
@@ -144,13 +144,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
+                    android:gravity="center"
                     app:layout_constraintBottom_toTopOf="@id/view3"
                     app:layout_constraintTop_toBottomOf="@id/view2">
 
                     <ImageView
                         android:id="@+id/ic_lock"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/ic_lock_open_black_24dp" />
 
                     <EditText
@@ -180,13 +181,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
+                    android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/view3">
 
                     <ImageView
                         android:id="@+id/ic_email"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:src="@drawable/ic_drafts_black_24dp" />
 
                     <EditText

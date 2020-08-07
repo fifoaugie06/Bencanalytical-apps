@@ -4,6 +4,7 @@ import com.example.bencanalytical.model.responseAuth;
 import com.example.bencanalytical.model.responseBencana;
 import com.example.bencanalytical.model.responseGeneral;
 import com.example.bencanalytical.model.responsePengaduan;
+import com.example.bencanalytical.model.responseProfile;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -21,6 +22,14 @@ public interface ApiService {
     @POST("auth.php")
     Call<responseAuth> auth(@Field("username") String username,
                             @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("addUser.php")
+    Call<responseGeneral> addUser(@Field("username") String username,
+                                  @Field("fullname") String fullname,
+                                  @Field("password") String password,
+                                  @Field("email") String email
+    );
 
     @GET("readBencana.php")
     Call<responseBencana> getBencana();
@@ -40,5 +49,10 @@ public interface ApiService {
             @Part("koordinat") RequestBody koordinat,
             @Part("lokasi") RequestBody lokasi,
             @Part("kejadian") RequestBody kejadian
+    );
+
+    @GET("readUser.php/{username}")
+    Call<responseProfile> getUser(
+            @Query("username") String username
     );
 }
