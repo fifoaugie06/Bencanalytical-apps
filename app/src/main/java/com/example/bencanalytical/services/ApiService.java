@@ -5,6 +5,7 @@ import com.example.bencanalytical.model.responseBencana;
 import com.example.bencanalytical.model.responseGeneral;
 import com.example.bencanalytical.model.responsePengaduan;
 import com.example.bencanalytical.model.responseProfile;
+import com.example.bencanalytical.model.weather.resultWeather;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -16,6 +17,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 public interface ApiService {
     @FormUrlEncoded
@@ -55,4 +57,17 @@ public interface ApiService {
     Call<responseProfile> getUser(
             @Query("username") String username
     );
+
+    @FormUrlEncoded
+    @POST("updateUser.php")
+    Call<responseGeneral> updateUser(@Field("username") String username,
+                                     @Field("fullname") String fullname,
+                                     @Field("phone") String phone,
+                                     @Field("email") String email,
+                                     @Field("alamat") String alamat
+    );
+
+    /*----Weather----*/
+    @GET()
+    Call<resultWeather> getWeather(@Url String url);
 }

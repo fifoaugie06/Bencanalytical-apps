@@ -66,6 +66,7 @@ public class BencanaAdapter extends RecyclerView.Adapter<BencanaAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvNama, tvTanggal, tvDeskripsiLocation;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

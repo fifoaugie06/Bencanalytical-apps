@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_bencana" />
 
     <fragment
+        android:id="@+id/navigation_cuaca"
+        android:name="com.example.bencanalytical.ui.cuaca.CuacaFragment"
+        android:label="@string/title_cuaca"
+        tools:layout="@layout/fragment_cuaca" />
+
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.bencanalytical.ui.profile.ProfileFragment"
         android:label="@string/title_profile"

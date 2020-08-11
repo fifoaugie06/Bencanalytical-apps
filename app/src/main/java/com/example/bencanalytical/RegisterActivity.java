@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -23,7 +22,6 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnIntentLogin;
     private ImageButton btnRegister;
     private EditText edtUsername, edtFullname, edtPassword, edtEmail;
-    private ApiService apiService;
     private ProgressDialog dialog;
 
     @Override
@@ -49,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
                     && edtEmail.getText().length() != 0 && edtPassword.getText().length() != 0) {
                 tambahkanUser(edtUsername.getText().toString(), edtFullname.getText().toString(),
                         edtPassword.getText().toString(), edtEmail.getText().toString());
-            }else{
+            } else {
                 Toast.makeText(RegisterActivity.this, "Pastikan semua diisi", Toast.LENGTH_SHORT).show();
             }
         });
@@ -63,11 +61,11 @@ public class RegisterActivity extends AppCompatActivity {
         dialog.setMessage("Loading ...");
         dialog.show();
 
-        apiService = ApiClient.getClient().create(ApiService.class);
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
         apiService.addUser(username, fullname, password, email).enqueue(new Callback<responseGeneral>() {
             @Override
             public void onResponse(Call<responseGeneral> call, Response<responseGeneral> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     Toast.makeText(RegisterActivity.this, "Berhasil mendaftar", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     finish();

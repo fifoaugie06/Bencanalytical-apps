@@ -73,7 +73,6 @@
                         android:src="@drawable/ic_person_outline_black_24dp" />
 
                     <EditText
-                        android:text="fafaug"
                         android:id="@+id/edt_username"
                         android:layout_width="match_parent"
                         android:layout_height="33dp"
@@ -111,7 +110,6 @@
                         android:src="@drawable/ic_lock_open_black_24dp" />
 
                     <EditText
-                        android:text="123"
                         android:id="@+id/edt_password"
                         android:layout_width="match_parent"
                         android:layout_height="33dp"

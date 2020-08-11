@@ -1,7 +1,9 @@
 package com.example.bencanalytical.ui.pengaduan;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +32,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.bencanalytical.LoginActivity.IDUSER;
+import static com.example.bencanalytical.LoginActivity.SHARED_PREFS;
+import static com.example.bencanalytical.LoginActivity.USERNAME;
+
 public class PengaduanFragment extends Fragment {
     private View view;
     private ProgressDialog progress;
@@ -37,8 +43,8 @@ public class PengaduanFragment extends Fragment {
     private List<responsePengaduanData> responsePengaduanData;
     private PengaduanAdapter adapter;
     private RecyclerView recyclerView;
-    private String IDUSER;
     private FloatingActionButton fab;
+    private String iduser;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,12 +55,13 @@ public class PengaduanFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        IDUSER = getActivity().getIntent().getStringExtra("IDUSER");
+        SharedPreferences preferences = getActivity().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        iduser = preferences.getString(IDUSER, "");
 
         fab = view.findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), TambahPengaduanActivity.class);
-            intent.putExtra("IDUSER", IDUSER);
+
             startActivity(intent);
         });
 
@@ -70,7 +77,7 @@ public class PengaduanFragment extends Fragment {
         progress.show();
 
         apiService = ApiClient.getClient().create(ApiService.class);
-        Call<responsePengaduan> responsePengaduanCall = apiService.getPengaduan(IDUSER);
+        Call<responsePengaduan> responsePengaduanCall = apiService.getPengaduan(iduser);
         responsePengaduanCall.enqueue(new Callback<responsePengaduan>() {
             @Override
             public void onResponse(Call<responsePengaduan> call, Response<responsePengaduan> response) {

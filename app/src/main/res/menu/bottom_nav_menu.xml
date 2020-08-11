@@ -12,6 +12,11 @@
         android:title="@string/title_bencana" />
 
     <item
+        android:id="@+id/navigation_cuaca"
+        android:icon="@drawable/ic_baseline_cloud_24"
+        android:title="@string/title_cuaca" />
+
+    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/title_profile" />

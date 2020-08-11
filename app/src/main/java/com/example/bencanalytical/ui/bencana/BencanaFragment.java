@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bencanalytical.LoginActivity;
 import com.example.bencanalytical.R;
 import com.example.bencanalytical.adapter.BencanaAdapter;
 import com.example.bencanalytical.model.responseBencana;
@@ -28,11 +27,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class BencanaFragment extends Fragment {
     private View view;
     private ProgressDialog progress;
-    private ApiService apiService;
     private List<responseBencanaData> responseBencanaData;
     private BencanaAdapter adapter;
     private RecyclerView recyclerView;
@@ -56,7 +53,7 @@ public class BencanaFragment extends Fragment {
         progress.setMessage("Loading ...");
         progress.show();
 
-        apiService = ApiClient.getClient().create(ApiService.class);
+        ApiService apiService = ApiClient.getClient().create(ApiService.class);
         Call<responseBencana> responseBencanaCall = apiService.getBencana();
         responseBencanaCall.enqueue(new Callback<responseBencana>() {
             @Override

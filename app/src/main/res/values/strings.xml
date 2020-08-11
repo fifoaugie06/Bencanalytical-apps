@@ -22,4 +22,13 @@
     <string name="alamat">Address</string>
     <string name="editProfile">Edit Profile</string>
     <string name="logout">Logout</string>
+    <string name="update">Update</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_cuaca">Cuaca</string>
+    <string name="rincian">Rincian</string>
+    <string name="angin">Kecepatan Angin</string>
+    <string name="terasa">Terasa Seperti</string>
+    <string name="kelembaban">Kelembaban</string>
+    <string name="tekanan">Tekanan</string>
 </resources>

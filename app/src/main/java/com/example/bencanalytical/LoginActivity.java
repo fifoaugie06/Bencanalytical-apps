@@ -3,21 +3,18 @@ package com.example.bencanalytical;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.bencanalytical.model.responseAuth;
-import com.example.bencanalytical.model.responseAuthData;
 import com.example.bencanalytical.services.ApiClient;
 import com.example.bencanalytical.services.ApiService;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,6 +26,23 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnRegisterIntent;
     private ProgressDialog progress;
     private ApiService apiService;
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String IDUSER = "IdUser";
+    public static final String USERNAME = "Username";
+    public static final String ISLOGIN = "IsLogin";
+    public boolean stateLogin;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SharedPreferences preferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        stateLogin = preferences.getBoolean(ISLOGIN, false);
+
+        if (stateLogin) {
+            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +50,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         getSupportActionBar().hide();
+
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         edtUsername = findViewById(R.id.edt_username);
         edtPassword = findViewById(R.id.edt_password);
@@ -67,9 +84,14 @@ public class LoginActivity extends AppCompatActivity {
                             String idUser = response.body().getData().getId();
 
                             Toast.makeText(LoginActivity.this, "Selamat datang", Toast.LENGTH_SHORT).show();
+
                             Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                            intent.putExtra("USERNAME", edtUsername.getText().toString());
-                            intent.putExtra("IDUSER", idUser);
+
+                            editor.putString(IDUSER, idUser);
+                            editor.putString(USERNAME, edtUsername.getText().toString());
+                            editor.putBoolean(ISLOGIN, true);
+                            editor.apply();
+
                             startActivity(intent);
                             finish();
                         } else {

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_padding_16dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldUsername"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/username"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:editable="false"
+            android:id="@+id/edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="@dimen/margin_padding_4dp"
+        android:id="@+id/textFieldFullname"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/fullname"
+        app:layout_constraintTop_toBottomOf="@id/textFieldUsername">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldPhone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_4dp"
+        android:hint="@string/phone"
+        app:layout_constraintTop_toBottomOf="@id/textFieldFullname">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_4dp"
+        android:hint="@string/email"
+        app:layout_constraintTop_toBottomOf="@id/textFieldPhone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldAlamat"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_4dp"
+        android:hint="@string/alamat"
+        app:layout_constraintTop_toBottomOf="@id/textFieldEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:lines="5" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:textColor="@android:color/white"
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/update"
+        app:layout_constraintEnd_toEndOf="@+id/textFieldAlamat"
+        app:layout_constraintTop_toBottomOf="@+id/textFieldAlamat" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
